@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  * Models a customer that buys a parking pass.
@@ -43,6 +44,7 @@ public class Customer {
 	/**
 	 * @return the firstName
 	 */
+	@NotNull
 	public String getFirstName() {
 	
 		return firstName;
@@ -61,6 +63,7 @@ public class Customer {
 	/**
 	 * @return the lastName
 	 */
+	@NotNull
 	public String getLastName() {
 	
 		return lastName;
@@ -79,6 +82,7 @@ public class Customer {
 	/**
 	 * @return the phoneNumber
 	 */
+	@NotNull
 	public String getPhoneNumber() {
 	
 		return phoneNumber;
@@ -97,6 +101,7 @@ public class Customer {
 	/**
 	 * @return the email
 	 */
+	@NotNull
 	public String getEmail() {
 	
 		return email;

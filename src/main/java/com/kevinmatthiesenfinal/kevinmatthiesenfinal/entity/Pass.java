@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  * Models a parking pass.
@@ -48,6 +49,7 @@ public class Pass {
 	 */
 	@OneToOne
 	@JoinColumn(name="customerId")
+	@NotNull
 	public Customer getCustomer() {
 	
 		return customer;
@@ -68,6 +70,7 @@ public class Pass {
 	 */
 	@OneToOne
 	@JoinColumn(name="vehicleId")
+	@NotNull
 	public Vehicle getVehicle() {
 	
 		return vehicle;
@@ -86,6 +89,7 @@ public class Pass {
 	/**
 	 * @return the expirationDate
 	 */
+	@NotNull
 	public Date getExpirationDate() {
 	
 		return expirationDate;

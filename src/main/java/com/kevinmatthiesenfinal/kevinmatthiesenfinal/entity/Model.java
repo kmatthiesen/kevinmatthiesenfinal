@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  * Models the model of a vehicle.
@@ -40,6 +41,7 @@ public class Model {
 	/**
 	 * @return the modelName
 	 */
+	@NotNull
 	public String getModelName() {
 	
 		return modelName;

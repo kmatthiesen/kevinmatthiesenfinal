@@ -1,0 +1,12 @@
+.nav {
+    margin-top: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+#view-port {
+    margin-top: 53px;
+}

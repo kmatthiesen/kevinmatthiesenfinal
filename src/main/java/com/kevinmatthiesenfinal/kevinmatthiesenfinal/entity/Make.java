@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  * Models the make of a vehicle.
@@ -40,6 +41,7 @@ public class Make {
 	/**
 	 * @return the makeName
 	 */
+	@NotNull
 	public String getMakeName() {
 	
 		return makeName;

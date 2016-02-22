@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  * Models a vehicle owned by a customer for a parking pass.
@@ -15,8 +18,8 @@ import javax.persistence.Id;
 public class Vehicle {
 
 	private Integer vehicleId;
-	private String make;
-	private String model;
+	private Make make;
+	private Model model;
 	private String licensePlate;
 	private String licenseLocation;
 	private String color;
@@ -44,7 +47,10 @@ public class Vehicle {
 	/**
 	 * @return the make
 	 */
-	public String getMake() {
+	@OneToOne
+	@JoinColumn(name = "makeId")
+	@NotNull
+	public Make getMake() {
 	
 		return make;
 		
@@ -53,7 +59,7 @@ public class Vehicle {
 	/**
 	 * @param make the make to set
 	 */
-	public void setMake(String make) {
+	public void setMake(Make make) {
 	
 		this.make = make;
 		
@@ -62,7 +68,10 @@ public class Vehicle {
 	/**
 	 * @return the model
 	 */
-	public String getModel() {
+	@OneToOne
+	@JoinColumn(name = "modelId")
+	@NotNull
+	public Model getModel() {
 	
 		return model;
 		
@@ -71,7 +80,7 @@ public class Vehicle {
 	/**
 	 * @param model the model to set
 	 */
-	public void setModel(String model) {
+	public void setModel(Model model) {
 	
 		this.model = model;
 		
@@ -80,6 +89,7 @@ public class Vehicle {
 	/**
 	 * @return the licensePlate
 	 */
+	@NotNull
 	public String getLicensePlate() {
 	
 		return licensePlate;
@@ -98,6 +108,7 @@ public class Vehicle {
 	/**
 	 * @return the licenseLocation
 	 */
+	@NotNull
 	public String getLicenseLocation() {
 	
 		return licenseLocation;
@@ -116,6 +127,7 @@ public class Vehicle {
 	/**
 	 * @return the color
 	 */
+	@NotNull
 	public String getColor() {
 	
 		return color;

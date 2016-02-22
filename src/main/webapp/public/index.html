@@ -13,6 +13,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="project.css">
 
+    <!-- JQuery and Bootstrap JQuery -->
 	<script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
 	<script	src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -28,9 +29,13 @@
     <!-- Routes -->
     <script type="text/javascript" src="/app/routes/routes.js"></script>
     <script type="text/javascript" src="/app/routes/customerRoutes.js"></script>
+    <script type="text/javascript" src="/app/routes/vehicleRoutes.js"></script>
 
     <!-- Controllers -->
-    <script type="text/javascript" src="/app/ctrl/customerCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/customerViewCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/customerUpdateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/customerCreateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/vehicleCreateCtrl.js"></script>
     <script type="text/javascript" src="/app/ctrl/homeCtrl.js"></script>
 
     <!-- Services -->
@@ -44,11 +49,23 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <ul class="nav">
-                    <li class="dropdown"><a ui-sref="customer.view" class="dropdown-toggle" data-toggle="dropdown">Customer</a>
+                <ul class="nav col-md-6 col-sm-6">
+                    <li class="dropdown col-md-4 col-sm-6"><a class="dropdown-toggle" data-toggle="dropdown">Parking Pass</a>
                         <ul class="dropdown-menu">
+                            <li><a ui-sref="customer.create">View</a></li>
                             <li><a ui-sref="customer.create">Create</a></li>
-                            <li><a href="customer.view">Link</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown col-md-4 col-sm-6"><a class="dropdown-toggle" data-toggle="dropdown">Vehicle</a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="customer.create">View</a></li>
+                            <li><a ui-sref="customer.create">Create</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="customer.view" class="dropdown-toggle" data-toggle="dropdown">Customer</a>
+                        <ul class="dropdown-menu">
+                            <li><a ui-sref="customer.view">View</a></li>
+                            <li><a ui-sref="customer.create">Create</a></li>
                         </ul>
                     </li>
                 </ul>

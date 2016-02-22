@@ -36,4 +36,16 @@ public class ICustomerService implements CustomerService {
 		
 	}
 
+	public void updateCustomer(Customer customer) {
+
+		dao.updateCustomer(customer);
+		
+	}
+	
+	public Customer getCustomerById(Integer id){
+		
+		return dao.getCustomerById(id);
+		
+	}
+
 }

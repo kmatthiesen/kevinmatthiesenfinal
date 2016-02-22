@@ -14,11 +14,25 @@ angular.module("final-project").service("customerService", ["$http", function($h
 
     }
 
+    function getCustomer(id) {
+
+        return $http.get("/customer/" + id);
+
+    }
+
+    function update(customer) {
+
+        return $http.put("/customer", customer);
+
+    }
+
     // List of available functions.
     return {
 
         create: create,
-        getAllCustomers: getAllCustomers
+        getAllCustomers: getAllCustomers,
+        getCustomer: getCustomer,
+        update: update
 
     };
 

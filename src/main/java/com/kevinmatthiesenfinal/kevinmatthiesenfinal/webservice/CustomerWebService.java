@@ -3,6 +3,7 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.webservice;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,7 +46,7 @@ public class CustomerWebService {
 		service.add(customer);
 
 	}
-	
+
 	/**
 	 * Retrieves all customers from the database.
 	 * 
@@ -55,6 +56,33 @@ public class CustomerWebService {
 	public List<Customer> getCustomers() {
 
 		return service.getCustomers();
+
+	}
+
+	/**
+	 * Update a customer in the database.
+	 * 
+	 * @param customer
+	 *            The customer to be updated in the database.
+	 */
+	@RequestMapping(value = "/customer", method = RequestMethod.PUT)
+	public void updateCustomer(@RequestBody Customer customer) {
+
+		service.updateCustomer(customer);
+
+	}
+
+	/**
+	 * Retrieve a customer by their id from the database.
+	 * 
+	 * @param id
+	 *            The id of the customer to retrieve.
+	 * @return The customer with the corresponding id.
+	 */
+	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET)
+	public Customer getCustomerById(@PathVariable Integer id) {
+
+		return service.getCustomerById(id);
 
 	}
 

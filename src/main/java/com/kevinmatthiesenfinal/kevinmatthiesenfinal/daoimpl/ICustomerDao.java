@@ -15,10 +15,8 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 @Component
 public class ICustomerDao implements CustomerDao {
 	
-	/**
-	 * Query to retrieve a list of all customers from the database.
-	 */
 	private String getAllCustomersQuery = "SELECT c FROM Customer c";
+	private String getSingleCustomerByIdQuery = "SELECT c FROM Customer c WHERE c.customerId =:id ";
 
 	@PersistenceContext
 	private EntityManager em;
@@ -42,6 +40,19 @@ public class ICustomerDao implements CustomerDao {
 	public List<Customer> getCustomers() {
 
 		return em.createQuery(getAllCustomersQuery, Customer.class).getResultList();
+		
+	}
+
+	public void updateCustomer(Customer customer) {
+
+		em.merge(customer);
+		em.flush();
+		
+	}
+	
+	public Customer getCustomerById(Integer id) {
+
+		return em.createQuery(getSingleCustomerByIdQuery, Customer.class).setParameter("id", id).getSingleResult();
 		
 	}
 

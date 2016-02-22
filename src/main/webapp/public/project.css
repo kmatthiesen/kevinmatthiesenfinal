@@ -1,12 +1,39 @@
 .nav {
+
     margin-top: 10px;
+    color: white !important;
+
+}
+
+.nav a {
+
+    color: white !important;
+
+}
+
+.nav > li > a:hover{
+
+    background-color: rgb(136, 136, 136) !important;
+
 }
 
 .dropdown:hover .dropdown-menu {
+
     display: block;
     margin-top: 0;
+
+}
+
+.dropdown:hover .dropdown-menu a {
+
+    display: block;
+    margin-top: 0;
+    color: black !important;
+
 }
 
 #view-port {
+
     margin-top: 53px;
+
 }

@@ -29,4 +29,21 @@ public interface CustomerService {
 	 */
 	public List<Customer> getCustomers();
 
+	/**
+	 * Update a customer in the database.
+	 * 
+	 * @param customer
+	 *            The customer to be updated in the databse.
+	 */
+	public void updateCustomer(Customer customer);
+
+	/**
+	 * Retrieve a customer by their id from the database.
+	 * 
+	 * @param id
+	 *            The id of the customer to retrieve.
+	 * @return The customer with the corresponding id.
+	 */
+	public Customer getCustomerById(Integer id);
+	
 }

@@ -1,5 +1,5 @@
-angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$state', 'vehicleService', 'makeService', 'modelService', 'makes', 'models',
-    function($scope, $state, vehicleService, makeService, modelService, makes, models) {
+angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$state', '$q','vehicleService', 'makeService', 'modelService', 'makes', 'models',
+    function($scope, $state, $q, vehicleService, makeService, modelService, makes, models) {
 
     // Initilization
     $scope.makes = makes;
@@ -9,23 +9,23 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
     $scope.newMake = {};
     $scope.newModel = {};
 
+    var otherMake = ({makeName: "Other"});
+    var otherModel = ({modelName: "Other"});
+
     // Creates a new vehicle
     $scope.createVehicle = function() {
 
-        makeCheck();
-        modelCheck();
+        if ($scope.vehicleMake.makeName === "Other" && $scope.vehicleModel.modelName === "Other") {
 
-        vehicleService.create($scope.newVehicle).then(function() {
+            $q.all([makeService.newMake($scope.make), modelService.newModel($scope.model)]).then(function(response) {
 
-            $scope.message = "Vehicle added.";
-            $scope.newCustomer = {};
+                newMakeCreated(response[0].data);
+                newModelCreated(response[1].data);
+                createVehicle();
 
-        }, function(error) {
+            });
 
-            $scope.errors.push("Error: Vehicle could not be created.");
-
-        });
-
+        }
 
 
     };
@@ -37,59 +37,39 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
 
     };
 
-    // Checks to see if a new make is needed to be made and assigns the make to the new Vehicle
-    function makeCheck() {
+    // Resets the values of a new make after creation and assigns the value to the new vehicle.
+    function newMakeCreated(make) {
 
-        if ($scope.vehicleMake.makeName === "Other") {
-
-            return makeService.newMake($scope.make).then(function(response){
-
-                $scope.newVehicle.make = response.data;
-                $scope.makes.pop();
-                $scope.makes.push(response.data);
-                $scope.makes.push({makeName: "Other"});
-                return response.data;
-
-            }, function(error){
-
-                $scope.errors.push("Error: Unable to create new vehicle make.");
-                return error;
-
-            });
-        }
-        else {
-
-            $scope.newVehicle.make = $scope.vehicleMake;
-
-        }
+        $scope.newVehicle.make = make;
+        $scope.makes.pop();
+        $scope.makes.push(make);
+        $scope.makes.push(otherMake);
 
     }
 
+    // Resets the values of a new model after creation and assigns the value to the new vehicle.
+    function newModelCreated(model) {
 
-    function modelCheck() {
+        $scope.newVehicle.model = model;
+        $scope.models.pop();
+        $scope.models.push(model);
+        $scope.models.push(otherModel);
 
-        if ($scope.vehicleModel.modelName === "Other") {
+    }
 
-            return modelService.newModel($scope.model).then(function(response){
+    // Creates a new vehicle in the database.
+    function createVehicle() {
 
-                $scope.newVehicle.model = response.data;
-                $scope.models.pop();
-                $scope.models.push(response.data);
-                $scope.models.push({modelName: "Other"});
-                return response.data;
+        vehicleService.create($scope.newVehicle).then(function() {
 
-            }, function(error){
+            $scope.message = "Vehicle added.";
+            $scope.newVehicle = {};
 
-                $scope.errors.push("Error: Unable to create new vehicle model.");
-                return error;
+        }, function(error) {
 
-            });
-        }
-        else {
+            $scope.errors.push("Error: Vehicle could not be created.");
 
-            $scope.newVehicle.model = $scope.vehicleModel;
-
-        }
+        });
 
     }
 

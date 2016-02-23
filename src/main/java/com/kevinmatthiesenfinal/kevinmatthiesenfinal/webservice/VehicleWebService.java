@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Vehicle;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.service.VehicleService;
 

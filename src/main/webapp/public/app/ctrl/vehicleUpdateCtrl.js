@@ -18,12 +18,12 @@ angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$sta
 
         vehicleService.update($scope.vehicle).then(function() {
 
-            $scope.message = "Vehicle added.";
-            $scope.newCustomer = {};
+            $scope.message = "Vehicle updated.";
+            $scope.errors = [];
 
         }, function(error) {
 
-            $scope.errors.push("Error: Vehicle could not be created.");
+            $scope.errors.push("Error: Vehicle could not be updated.");
 
         });
 
@@ -38,23 +38,21 @@ angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$sta
 
     };
 
-    // Checks to see if a new make is needed to be made and assigns the make to the new Vehicle
+    // Checks to see if a new make is needed to be made and assigns the make to the vehicle.
     function makeCheck() {
 
         if ($scope.vehicleMake.makeName === "Other") {
 
-            return makeService.newMake($scope.make).then(function(response){
+            makeService.newMake($scope.make).then(function(response){
 
                 $scope.vehicle.make = response.data;
                 $scope.makes.pop();
                 $scope.makes.push(response.data);
                 $scope.makes.push({makeName: "Other"});
-                return response.data;
 
             }, function(error){
 
                 $scope.errors.push("Error: Unable to create new vehicle make.");
-                return error;
 
             });
         }
@@ -66,23 +64,21 @@ angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$sta
 
     }
 
-
+    // Checks if the a new model is need and assigns the model to the vehicle.
     function modelCheck() {
 
         if ($scope.vehicleModel.modelName === "Other") {
 
-            return modelService.newModel($scope.model).then(function(response){
+            modelService.newModel($scope.model).then(function(response){
 
                 $scope.vehicle.model = response.data;
                 $scope.models.pop();
                 $scope.models.push(response.data);
                 $scope.models.push({modelName: "Other"});
-                return response.data;
 
             }, function(error){
 
                 $scope.errors.push("Error: Unable to create new vehicle model.");
-                return error;
 
             });
         }

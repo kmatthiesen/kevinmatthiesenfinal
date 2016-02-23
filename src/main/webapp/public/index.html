@@ -36,10 +36,15 @@
     <script type="text/javascript" src="/app/ctrl/customerUpdateCtrl.js"></script>
     <script type="text/javascript" src="/app/ctrl/customerCreateCtrl.js"></script>
     <script type="text/javascript" src="/app/ctrl/vehicleCreateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/vehicleViewCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/vehicleUpdateCtrl.js"></script>
     <script type="text/javascript" src="/app/ctrl/homeCtrl.js"></script>
 
     <!-- Services -->
     <script type="text/javascript" src="/app/service/customerService.js"></script>
+    <script type="text/javascript" src="/app/service/makeService.js"></script>
+    <script type="text/javascript" src="/app/service/modelService.js"></script>
+    <script type="text/javascript" src="/app/service/vehicleService.js"></script>
 
 
 </head>
@@ -56,10 +61,10 @@
                             <li><a ui-sref="customer.create">Create</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown col-md-4 col-sm-6"><a class="dropdown-toggle" data-toggle="dropdown">Vehicle</a>
+                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="vehicle.view" class="dropdown-toggle" data-toggle="dropdown">Vehicle</a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="customer.create">View</a></li>
-                            <li><a ui-sref="customer.create">Create</a></li>
+                            <li><a ui-sref="vehicle.view">View</a></li>
+                            <li><a ui-sref="vehicle.create">Create</a></li>
                         </ul>
                     </li>
                     <li class="dropdown col-md-4 col-sm-6"><a ui-sref="customer.view" class="dropdown-toggle" data-toggle="dropdown">Customer</a>

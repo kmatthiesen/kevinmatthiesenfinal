@@ -1,8 +1,6 @@
 package com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao;
 
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Component;
+import java.util.List;
 
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Vehicle;
 
@@ -21,5 +19,21 @@ public interface VehicleDao {
 	 *            The new vehicle to add to the database.
 	 */
 	public void add(Vehicle vehicle);
+
+	/**
+	 * Gets a list of all vehicles from the database.
+	 * 
+	 * @return The list of all vehicles from the database.
+	 */
+	public List<Vehicle> getVehicles();
+
+	/**
+	 * Gets a vehicle from the database based on its id.
+	 * 
+	 * @param id
+	 *            The id of the vehicle to get.
+	 * @return The vehicle with the given id.
+	 */
+	public Vehicle getVehicleById(Integer id);
 
 }

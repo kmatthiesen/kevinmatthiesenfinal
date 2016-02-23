@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Main runner for the final project.
+ * Main runner for the final project application.
  * 
  * @author kmatthiesen
  *

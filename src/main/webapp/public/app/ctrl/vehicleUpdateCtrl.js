@@ -1,21 +1,22 @@
-angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$state', 'vehicleService', 'makeService', 'modelService', 'makes', 'models',
-    function($scope, $state, vehicleService, makeService, modelService, makes, models) {
+angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$state', 'vehicleService', 'makeService', 'modelService', 'makes', 'models', 'vehicle',
+    function($scope, $state, vehicleService, makeService, modelService, makes, models, vehicle) {
 
     // Initilization
     $scope.makes = makes;
     $scope.models = models;
+    $scope.vehicle = vehicle;
     $scope.message = "";
     $scope.errors = [];
     $scope.newMake = {};
     $scope.newModel = {};
 
     // Creates a new vehicle
-    $scope.createVehicle = function() {
+    $scope.updateVehicle = function() {
 
         makeCheck();
         modelCheck();
 
-        vehicleService.create($scope.newVehicle).then(function() {
+        vehicleService.update($scope.vehicle).then(function() {
 
             $scope.message = "Vehicle added.";
             $scope.newCustomer = {};
@@ -44,7 +45,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
 
             return makeService.newMake($scope.make).then(function(response){
 
-                $scope.newVehicle.make = response.data;
+                $scope.vehicle.make = response.data;
                 $scope.makes.pop();
                 $scope.makes.push(response.data);
                 $scope.makes.push({makeName: "Other"});
@@ -59,7 +60,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
         }
         else {
 
-            $scope.newVehicle.make = $scope.vehicleMake;
+            $scope.vehicle.make = $scope.vehicleMake;
 
         }
 
@@ -72,7 +73,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
 
             return modelService.newModel($scope.model).then(function(response){
 
-                $scope.newVehicle.model = response.data;
+                $scope.vehicle.model = response.data;
                 $scope.models.pop();
                 $scope.models.push(response.data);
                 $scope.models.push({modelName: "Other"});
@@ -87,7 +88,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
         }
         else {
 
-            $scope.newVehicle.model = $scope.vehicleModel;
+            $scope.vehicle.model = $scope.vehicleModel;
 
         }
 

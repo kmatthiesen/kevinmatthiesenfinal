@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Controllers the page to page navigation of the webpage.
+ * Controls the page to page navigation of the webpage.
  * 
  * @author kmatthiesen
  *

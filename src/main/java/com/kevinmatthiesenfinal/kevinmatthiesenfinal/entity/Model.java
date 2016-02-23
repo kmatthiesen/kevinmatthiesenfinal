@@ -1,5 +1,6 @@
 package com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,6 +43,7 @@ public class Model {
 	 * @return the modelName
 	 */
 	@NotNull
+	@Column(unique = true)
 	public String getModelName() {
 	
 		return modelName;

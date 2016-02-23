@@ -2,10 +2,6 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Component;
-
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 
 /**

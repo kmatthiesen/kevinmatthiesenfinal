@@ -2,8 +2,6 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 
 /**

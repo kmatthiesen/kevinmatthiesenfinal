@@ -1,28 +1,32 @@
 angular.module("final-project").service("customerService", ["$http", function($http){
 
+    var customerEndPoint = "/customer";
+
     // Creates a new customer.
     function create(customer) {
 
-        return $http.post("/customer", customer);
+        return $http.post(customerEndPoint, customer);
 
     }
 
     // Gets all customers from the database.
     function getAllCustomers() {
 
-        return $http.get("/customer");
+        return $http.get(customerEndPoint);
 
     }
 
+    // Get a customer from the database by their id.
     function getCustomer(id) {
 
-        return $http.get("/customer/" + id);
+        return $http.get(customerEndPoint + "/" + id);
 
     }
 
+    // Update a customer in the database.
     function update(customer) {
 
-        return $http.put("/customer", customer);
+        return $http.put(customerEndPoint, customer);
 
     }
 

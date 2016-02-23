@@ -13,7 +13,7 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.service.CustomerService;
 
 /**
- * Handles request from the webpage concerning customers.
+ * Handles requests from the webpage concerning customers.
  * 
  * @author kmatthiesen
  *

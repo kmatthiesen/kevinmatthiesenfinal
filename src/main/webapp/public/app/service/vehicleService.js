@@ -1,24 +1,31 @@
 angular.module("final-project").service("vehicleService", ["$http", function($http){
 
-    // Gets a list of all current vehicle makes.
-    function getMakes() {
+    var vehicleEndPoint = "/vehicle";
 
-        return $http.get("/vehicle/make");
+    function create(vehicle) {
+
+        return $http.post(vehicleEndPoint, vehicle);
 
     }
 
-    // Gets a list of all current vehicle models.
-    function getModels() {
+    function getVehicles() {
 
-        return $http.get("/vehicle/model");
+        return $http.get(vehicleEndPoint);
+
+    }
+
+    function getVehicle(id) {
+
+        return $http.get(vehicleEndPoint + '/' + id);
 
     }
 
     // List of available functions.
     return {
 
-        getMakes: getMakes,
-        getModels: getModels
+        create: create,
+        getVehicles: getVehicles,
+        getVehicle: getVehicle
 
     };
 

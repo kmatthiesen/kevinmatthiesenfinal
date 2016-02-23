@@ -1,5 +1,6 @@
 package com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -52,7 +53,7 @@ public class Vehicle {
 	/**
 	 * @return the make
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "makeId")
 	@NotNull
 	public Make getMake() {
@@ -73,7 +74,7 @@ public class Vehicle {
 	/**
 	 * @return the model
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "modelId")
 	@NotNull
 	public Model getModel() {

@@ -19,11 +19,41 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
 
             $q.all([makeService.newMake($scope.make), modelService.newModel($scope.model)]).then(function(response) {
 
-                newMakeCreated(response[0].data);
-                newModelCreated(response[1].data);
+                setMake(response[0].data);
+                setModel(response[1].data);
                 createVehicle();
 
             });
+
+        }
+        else if ($scope.vehicleMake.makeName === "Other") {
+
+            $q.all([makeService.newMake($scope.make)]).then(function(response) {
+
+                setMake(response[0].data);
+                setModel($scope.vehicleMake);
+                createVehicle();
+
+            });
+
+        }
+        else if ($scope.vehicleModel.modelName === "Other") {
+
+            $q.all([modelService.newModel($scope.model)]).then(function(response) {
+
+                setMake($scope.vehicleModel);
+                setModel(response[0].data);
+                createVehicle();
+
+            });
+
+        }
+        else {
+
+            setMake($scope.vehicleModel);
+            setModel($scope.vehicleMake);
+            console.log($scope.newVehicle);
+            createVehicle();
 
         }
 
@@ -38,7 +68,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
     };
 
     // Resets the values of a new make after creation and assigns the value to the new vehicle.
-    function newMakeCreated(make) {
+    function setMake(make) {
 
         $scope.newVehicle.make = make;
         $scope.makes.pop();
@@ -48,7 +78,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
     }
 
     // Resets the values of a new model after creation and assigns the value to the new vehicle.
-    function newModelCreated(model) {
+    function setModel(model) {
 
         $scope.newVehicle.model = model;
         $scope.models.pop();

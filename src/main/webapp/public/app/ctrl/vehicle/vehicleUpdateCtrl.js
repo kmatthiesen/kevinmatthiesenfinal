@@ -42,7 +42,7 @@ angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$sta
     // Cancels the creation / updating of a customer and sends the user to the view page.
     $scope.cancel = function() {
 
-        $state.go("vehicle.view");
+        $state.go("vehicle.view", {}, {reload : true});
 
     };
 

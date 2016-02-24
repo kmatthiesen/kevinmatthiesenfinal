@@ -4,33 +4,29 @@
 
             <div class="form-group">
 
-                <label for="make">Vehicle Make:
-                <select id="make-dropdown" class="form-control" name="make" ng-model="newVehicle.make"
-                    ng-options="vehicle.make as vehicle.make for vehicle in vehicles | unique: 'make'">
+                <label for="make">Customer:
+                <select id="make-dropdown" class="form-control" name="make" ng-model="pass.customer"
+                    ng-options="customer as customer.lastName + ', ' + customer.firstName for customer in customers">
                     <option value="" ng-if="false"></option>
                 </select>
-                <input type="text" id="other-make" class="form-control" name="make" ng-model="newMake"
-                    placeholder="Make" ng-show="newVehicle.make == 'Other'" ng-required="newVehicle.make == 'Other'" /><label>
 
             </div>
             <div class="form-group">
 
-                <label for="model">Vehicle Model:
-                <select id="model-dropdown" class="form-control" name="model" ng-model="newVehicle.model"
-                    ng-options="vehicle.model as vehicle.model for vehicle in vehicles | unique: 'model'">
+                <label for="model">Vehicle:
+                <select id="model-dropdown" class="form-control" name="model" ng-model="pass.vehicle"
+                    ng-options="vehicle as vehicle.model  for vehicle in vehicles | unique: 'model'">
                     <option value="" ng-if="false"></option>
                 </select>
-                <input type="text" id="other-model" class="form-control" name="model" ng-model="newModel"
-                    placeholder="Model" ng-show="newVehicle.model == 'Other'" ng-required="newVehicle.model == 'Other'" /><label>
 
             </div>
             <div class="form-group">
-
-                <label for="licensePlate">License Plate Number:
+                <label>License Plate</label>
+                <label for="licensePlate">Number:
                 <input type="text" id="licensePlate" class="form-control" name="licensePlate" ng-model="newVehicle.licensePlate"
                     placeholder="License Plate Number" required /></label>
 
-                <label for="licenseLocation">License Plate Location:
+                <label for="licenseLocation">Location:
                 <input type="text" id="licenseLocation" class="form-control" name="licenseLocation" ng-model="newVehicle.licenseLocation"
                     placeholder="License Plate Location" required /></label>
 

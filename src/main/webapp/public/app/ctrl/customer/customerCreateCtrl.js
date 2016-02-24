@@ -9,11 +9,14 @@ angular.module("final-project").controller("customerCreateCtrl", ['$scope', '$st
     $scope.createCustomer = function() {
 
         customerService.create($scope.newCustomer).then(function(){
+
             $scope.message = "Customer Added.";
             $scope.newCustomer = {};
+
         }, function(error) {
-            console.log(error);
+
             $scope.error = "Error: Customer not created.";
+
         });
 
     };
@@ -21,7 +24,7 @@ angular.module("final-project").controller("customerCreateCtrl", ['$scope', '$st
     // Cancels the creation / updating of a customer and sends the user to the view page.
     $scope.cancel = function() {
 
-        $state.go("customer.view");
+        $state.go("customer.view", {}, {reload : true});
 
     };
 

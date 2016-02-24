@@ -21,7 +21,7 @@ angular.module("final-project").controller("customerUpdateCtrl", ['$scope', '$st
     // Cancels the creation / updating of a customer and sends the user to the view page.
     $scope.cancel = function() {
 
-        $state.go("customer.view");
+        $state.go("customer.view", {}, {reload : true});
 
     };
 

@@ -31,19 +31,24 @@
     <script type="text/javascript" src="/app/routes/routes.js"></script>
     <script type="text/javascript" src="/app/routes/customerRoutes.js"></script>
     <script type="text/javascript" src="/app/routes/vehicleRoutes.js"></script>
+    <script type="text/javascript" src="/app/routes/passRoutes.js"></script>
 
     <!-- Controllers -->
-    <script type="text/javascript" src="/app/ctrl/customerViewCtrl.js"></script>
-    <script type="text/javascript" src="/app/ctrl/customerUpdateCtrl.js"></script>
-    <script type="text/javascript" src="/app/ctrl/customerCreateCtrl.js"></script>
-    <script type="text/javascript" src="/app/ctrl/vehicleCreateCtrl.js"></script>
-    <script type="text/javascript" src="/app/ctrl/vehicleViewCtrl.js"></script>
-    <script type="text/javascript" src="/app/ctrl/vehicleUpdateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/customer/customerViewCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/customer/customerUpdateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/customer/customerCreateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/vehicle/vehicleCreateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/vehicle/vehicleViewCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/vehicle/vehicleUpdateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/pass/passCreateCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/pass/passViewCtrl.js"></script>
+    <script type="text/javascript" src="/app/ctrl/pass/passUpdateCtrl.js"></script>
     <script type="text/javascript" src="/app/ctrl/homeCtrl.js"></script>
 
     <!-- Services -->
     <script type="text/javascript" src="/app/service/customerService.js"></script>
     <script type="text/javascript" src="/app/service/vehicleService.js"></script>
+    <script type="text/javascript" src="/app/service/passService.js"></script>
 
 
 </head>
@@ -54,10 +59,10 @@
         <div class="navbar-inner">
             <div class="container">
                 <ul class="nav col-md-6 col-sm-6">
-                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}" class="dropdown-toggle" data-toggle="dropdown">Parking Pass</a>
+                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="pass.view" ui-sref-opts="{reload: true}" class="dropdown-toggle" data-toggle="dropdown">Parking Pass</a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}">View</a></li>
-                            <li><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}">Create</a></li>
+                            <li><a ui-sref="pass.view" ui-sref-opts="{reload: true}">View</a></li>
+                            <li><a ui-sref="pass.create" ui-sref-opts="{reload: true}">Create</a></li>
                         </ul>
                     </li>
                     <li class="dropdown col-md-4 col-sm-6"><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}" class="dropdown-toggle" data-toggle="dropdown">Vehicle</a>

@@ -31,7 +31,7 @@ public interface CustomerService {
 	 * Update a customer in the database.
 	 * 
 	 * @param customer
-	 *            The customer to be updated in the databse.
+	 *            The customer to be updated in the database.
 	 */
 	public void updateCustomer(Customer customer);
 

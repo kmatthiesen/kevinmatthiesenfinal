@@ -15,8 +15,8 @@ public interface CustomerDao {
 	/**
 	 * Adds a customer to the database.
 	 * 
-	 * @param vehicle
-	 *            The new vehicle to add to the database.
+	 * @param customer
+	 *            The new customer to add to the database.
 	 */
 	public void add(Customer customer);
 

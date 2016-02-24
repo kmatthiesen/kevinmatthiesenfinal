@@ -1,4 +1,4 @@
-package com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao;
+package com.kevinmatthiesenfinal.kevinmatthiesenfinal.service;
 
 import java.util.List;
 
@@ -6,18 +6,18 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
 
 /**
- * Handles queries with the database involving passes.
+ * Handles logic concerning passes.
  * 
  * @author kmatthiesen
  *
  */
-public interface PassDao {
+public interface PassService {
 
 	/**
 	 * Adds a pass to the database.
 	 * 
 	 * @param pass
-	 *            The new pass to add to the database.
+	 *            The pass to be added to the database.
 	 */
 	public void add(Pass pass);
 
@@ -29,10 +29,10 @@ public interface PassDao {
 	public List<Pass> getPasses();
 
 	/**
-	 * Updates a pass in the database.
+	 * Update a pass in the database.
 	 * 
 	 * @param pass
-	 *            The pass to update;
+	 *            The pass to be updated in the database.
 	 */
 	public void updatePass(Pass pass);
 
@@ -44,5 +44,5 @@ public interface PassDao {
 	 * @return The pass with the corresponding id.
 	 */
 	public Pass getPassById(Integer id);
-
+	
 }

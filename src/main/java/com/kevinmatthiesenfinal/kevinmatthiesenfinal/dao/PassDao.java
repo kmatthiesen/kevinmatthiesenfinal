@@ -5,12 +5,12 @@ import java.util.List;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 
 /**
- * Handles queries with the database involving customers.
+ * Handles queries with the database involving passes.
  * 
  * @author kmatthiesen
  *
  */
-public interface CustomerDao {
+public interface PassDao {
 
 	/**
 	 * Adds a customer to the database.

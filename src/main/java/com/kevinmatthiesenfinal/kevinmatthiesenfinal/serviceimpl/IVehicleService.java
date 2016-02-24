@@ -41,4 +41,10 @@ public class IVehicleService implements VehicleService {
 		
 	}
 
+	public void update(Vehicle vehicle) {
+
+		dao.update(vehicle);
+		
+	}
+
 }

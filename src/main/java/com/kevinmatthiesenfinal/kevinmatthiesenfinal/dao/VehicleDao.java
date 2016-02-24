@@ -36,4 +36,12 @@ public interface VehicleDao {
 	 */
 	public Vehicle getVehicleById(Integer id);
 
+	/**
+	 * Updates a vehicle in the database.
+	 * 
+	 * @param vehicle
+	 *            The vehicle to update.
+	 */
+	public void update(Vehicle vehicle);
+
 }

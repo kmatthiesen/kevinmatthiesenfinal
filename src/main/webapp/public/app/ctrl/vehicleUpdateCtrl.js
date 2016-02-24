@@ -1,29 +1,37 @@
-angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$state', 'vehicleService', 'makeService', 'modelService', 'makes', 'models', 'vehicle',
-    function($scope, $state, vehicleService, makeService, modelService, makes, models, vehicle) {
+angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$state', 'vehicleService', 'allVehicles', 'vehicle',
+    function($scope, $state, vehicleService, allVehicles, vehicle) {
 
     // Initilization
-    $scope.makes = makes;
-    $scope.models = models;
+    $scope.vehicles = allVehicles;
     $scope.vehicle = vehicle;
     $scope.message = "";
-    $scope.errors = [];
-    $scope.newMake = {};
-    $scope.newModel = {};
+    $scope.error = "";
+    // Adds a "vehicle" to the list to allow for new makes and models to be added.
+    $scope.vehicles.push({make: "Other", model: "Other"});
 
     // Creates a new vehicle
     $scope.updateVehicle = function() {
 
-        makeCheck();
-        modelCheck();
+        if ($scope.vehicle.make == "Other") {
+
+            $scope.vehicle.make = $scope.newMake;
+
+        }
+
+        if ($scope.vehicle.model == "Other") {
+
+            $scope.vehicle.model = $scope.newModel;
+
+        }
 
         vehicleService.update($scope.vehicle).then(function() {
 
             $scope.message = "Vehicle updated.";
-            $scope.errors = [];
+            $scope.error = "";
 
         }, function(error) {
 
-            $scope.errors.push("Error: Vehicle could not be updated.");
+            $scope.error = "Error: Vehicle could not be updated.";
 
         });
 
@@ -37,58 +45,5 @@ angular.module("final-project").controller("vehicleUpdateCtrl", ['$scope', '$sta
         $state.go("vehicle.view");
 
     };
-
-    // Checks to see if a new make is needed to be made and assigns the make to the vehicle.
-    function makeCheck() {
-
-        if ($scope.vehicleMake.makeName === "Other") {
-
-            makeService.newMake($scope.make).then(function(response){
-
-                $scope.vehicle.make = response.data;
-                $scope.makes.pop();
-                $scope.makes.push(response.data);
-                $scope.makes.push({makeName: "Other"});
-
-            }, function(error){
-
-                $scope.errors.push("Error: Unable to create new vehicle make.");
-
-            });
-        }
-        else {
-
-            $scope.vehicle.make = $scope.vehicleMake;
-
-        }
-
-    }
-
-    // Checks if the a new model is need and assigns the model to the vehicle.
-    function modelCheck() {
-
-        if ($scope.vehicleModel.modelName === "Other") {
-
-            modelService.newModel($scope.model).then(function(response){
-
-                $scope.vehicle.model = response.data;
-                $scope.models.pop();
-                $scope.models.push(response.data);
-                $scope.models.push({modelName: "Other"});
-
-            }, function(error){
-
-                $scope.errors.push("Error: Unable to create new vehicle model.");
-
-            });
-        }
-        else {
-
-            $scope.vehicle.model = $scope.vehicleModel;
-
-        }
-
-    }
-
 
 }]);

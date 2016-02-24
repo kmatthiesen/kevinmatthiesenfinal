@@ -20,12 +20,19 @@ angular.module("final-project").service("vehicleService", ["$http", function($ht
 
     }
 
+    function update(vehicle) {
+
+        return $http.put(vehicleEndPoint, vehicle);
+
+    }
+
     // List of available functions.
     return {
 
         create: create,
         getVehicles: getVehicles,
-        getVehicle: getVehicle
+        getVehicle: getVehicle,
+        update: update
 
     };
 

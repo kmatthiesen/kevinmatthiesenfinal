@@ -1,20 +1,25 @@
 <div class="panel">
     <div class="panel-body">
         <form class="form-group" ng-submit="createVehicle()">
+
+            {{newVehicle}}
+
             <fieldset class="form-group">
 
                 <label for="make">Vehicle Make:
-                <select id="make-dropdown" class="form-group" name="make" ng-model="vehicleMake" ng-options="make as make.makeName for make in makes"></select>
-                <input type="text" id="other-make" class="form-group" name="make" ng-model="make.makeName"
-                    placeholder="Make" ng-show="vehicleMake.makeName == 'Other'" ng-required="vehicleMake.makeName == 'Other'" /><label>
+                <select id="make-dropdown" class="form-group" name="make" ng-model="newVehicle.make"
+                    ng-options="vehicle.make as vehicle.make for vehicle in vehicles | unique: 'make'"></select>
+                <input type="text" id="other-make" class="form-group" name="make" ng-model="newMake"
+                    placeholder="Make" ng-show="newVehicle.make == 'Other'" ng-required="newVehicle.make == 'Other'" /><label>
 
             </fieldset>
             <fieldset class="form-group">
 
                 <label for="model">Vehicle Model:
-                <select id="model-dropdown" class="form-group" name="model" ng-model="vehicleModel" ng-options="model as model.modelName for model in models"></select>
-                <input type="text" id="other-model" class="form-group" name="model" ng-model="model.modelName"
-                    placeholder="Model" ng-show="vehicleModel.modelName == 'Other'" ng-required="vehicleModel.modelName == 'Other'" /><label>
+                <select id="model-dropdown" class="form-group" name="model" ng-model="newVehicle.model"
+                    ng-options="vehicle.model as vehicle.model for vehicle in vehicles | unique: 'model'"></select>
+                <input type="text" id="other-model" class="form-group" name="model" ng-model="newModel"
+                    placeholder="Model" ng-show="newVehicle.model == 'Other'" ng-required="newVehicle.model == 'Other'" /><label>
 
             </fieldset>
             <fieldset class="form-group">

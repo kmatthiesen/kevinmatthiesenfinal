@@ -4,6 +4,4 @@ angular.module("final-project").controller("vehicleViewCtrl", ['$scope', '$state
     // Initilization
     $scope.vehicles = allVehicles;
 
-    console.log($scope.vehicles);
-
 }]);

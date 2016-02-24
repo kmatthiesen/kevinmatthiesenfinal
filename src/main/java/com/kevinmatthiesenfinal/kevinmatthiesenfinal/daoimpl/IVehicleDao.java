@@ -47,5 +47,12 @@ public class IVehicleDao implements VehicleDao {
 
 		return em.createQuery(getVehicleByIdQuery, Vehicle.class).setParameter("id", id).getSingleResult();
 	}
+
+	public void update(Vehicle vehicle) {
+
+		em.merge(vehicle);
+		em.flush();
+		
+	}
 	
 }

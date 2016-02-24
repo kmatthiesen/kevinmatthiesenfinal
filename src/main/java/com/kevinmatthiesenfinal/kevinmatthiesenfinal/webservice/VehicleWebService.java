@@ -71,5 +71,18 @@ public class VehicleWebService {
 		return service.getVehicleById(id);
 
 	}
+	
+	/**
+	 * Updates a vehicle in the database.
+	 * 
+	 * @param vehicle The vehicle to update.
+	 */
+	@RequestMapping(value = "/vehicle", method = RequestMethod.PUT)
+	public void updateVehicle(@RequestBody Vehicle vehicle) {
+
+		service.update(vehicle);
+
+	}
+
 
 }

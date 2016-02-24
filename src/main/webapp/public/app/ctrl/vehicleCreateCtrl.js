@@ -1,61 +1,39 @@
-angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$state', '$q','vehicleService', 'makeService', 'modelService', 'makes', 'models',
-    function($scope, $state, $q, vehicleService, makeService, modelService, makes, models) {
+angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$state', 'vehicleService', 'allVehicles',
+    function($scope, $state, vehicleService, allVehicles) {
 
     // Initilization
-    $scope.makes = makes;
-    $scope.models = models;
+    $scope.vehicles = allVehicles;
     $scope.message = "";
-    $scope.errors = [];
-    $scope.newMake = {};
-    $scope.newModel = {};
-
-    var otherMake = ({makeName: "Other"});
-    var otherModel = ({modelName: "Other"});
+    $scope.error = "";
+    // Adds a "vehicle" to the list to allow for new makes and models to be added.
+    $scope.vehicles.push({make: "Other", model: "Other"});
 
     // Creates a new vehicle
     $scope.createVehicle = function() {
 
-        if ($scope.vehicleMake.makeName === "Other" && $scope.vehicleModel.modelName === "Other") {
+        if ($scope.newVehicle.make == "Other") {
 
-            $q.all([makeService.newMake($scope.make), modelService.newModel($scope.model)]).then(function(response) {
-
-                setMake(response[0].data);
-                setModel(response[1].data);
-                createVehicle();
-
-            });
+            $scope.newVehicle.make = $scope.newMake;
 
         }
-        else if ($scope.vehicleMake.makeName === "Other") {
 
-            $q.all([makeService.newMake($scope.make)]).then(function(response) {
+        if ($scope.newVehicle.model == "Other") {
 
-                setMake(response[0].data);
-                setModel($scope.vehicleMake);
-                createVehicle();
-
-            });
+            $scope.newVehicle.model = $scope.newModel;
 
         }
-        else if ($scope.vehicleModel.modelName === "Other") {
 
-            $q.all([modelService.newModel($scope.model)]).then(function(response) {
+        vehicleService.create($scope.newVehicle).then(function() {
 
-                setMake($scope.vehicleModel);
-                setModel(response[0].data);
-                createVehicle();
+            $scope.message = "Vehicle added.";
+            $scope.newVehicle = {};
+            $scope.error = "";
 
-            });
+        }, function(error) {
 
-        }
-        else {
+            $scope.error = "Error: Vehicle could not be created.";
 
-            setMake($scope.vehicleModel);
-            setModel($scope.vehicleMake);
-            console.log($scope.newVehicle);
-            createVehicle();
-
-        }
+        });
 
 
     };
@@ -66,42 +44,5 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
         $state.go("vehicle.view");
 
     };
-
-    // Resets the values of a new make after creation and assigns the value to the new vehicle.
-    function setMake(make) {
-
-        $scope.newVehicle.make = make;
-        $scope.makes.pop();
-        $scope.makes.push(make);
-        $scope.makes.push(otherMake);
-
-    }
-
-    // Resets the values of a new model after creation and assigns the value to the new vehicle.
-    function setModel(model) {
-
-        $scope.newVehicle.model = model;
-        $scope.models.pop();
-        $scope.models.push(model);
-        $scope.models.push(otherModel);
-
-    }
-
-    // Creates a new vehicle in the database.
-    function createVehicle() {
-
-        vehicleService.create($scope.newVehicle).then(function() {
-
-            $scope.message = "Vehicle added.";
-            $scope.newVehicle = {};
-
-        }, function(error) {
-
-            $scope.errors.push("Error: Vehicle could not be created.");
-
-        });
-
-    }
-
 
 }]);

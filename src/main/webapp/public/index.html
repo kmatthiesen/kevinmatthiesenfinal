@@ -21,6 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
 
     <!-- App -->
     <script type="text/javascript" src="/app/app.js"></script>
@@ -42,8 +43,6 @@
 
     <!-- Services -->
     <script type="text/javascript" src="/app/service/customerService.js"></script>
-    <script type="text/javascript" src="/app/service/makeService.js"></script>
-    <script type="text/javascript" src="/app/service/modelService.js"></script>
     <script type="text/javascript" src="/app/service/vehicleService.js"></script>
 
 
@@ -55,22 +54,22 @@
         <div class="navbar-inner">
             <div class="container">
                 <ul class="nav col-md-6 col-sm-6">
-                    <li class="dropdown col-md-4 col-sm-6"><a class="dropdown-toggle" data-toggle="dropdown">Parking Pass</a>
+                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}" class="dropdown-toggle" data-toggle="dropdown">Parking Pass</a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="customer.create">View</a></li>
-                            <li><a ui-sref="customer.create">Create</a></li>
+                            <li><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}">View</a></li>
+                            <li><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}">Create</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="vehicle.view" class="dropdown-toggle" data-toggle="dropdown">Vehicle</a>
+                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}" class="dropdown-toggle" data-toggle="dropdown">Vehicle</a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="vehicle.view">View</a></li>
-                            <li><a ui-sref="vehicle.create">Create</a></li>
+                            <li><a ui-sref="vehicle.view" ui-sref-opts="{reload: true}">View</a></li>
+                            <li><a ui-sref="vehicle.create" ui-sref-opts="{reload: true}">Create</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="customer.view" class="dropdown-toggle" data-toggle="dropdown">Customer</a>
+                    <li class="dropdown col-md-4 col-sm-6"><a ui-sref="customer.view" ui-sref-opts="{reload: true}" class="dropdown-toggle" data-toggle="dropdown">Customer</a>
                         <ul class="dropdown-menu">
-                            <li><a ui-sref="customer.view">View</a></li>
-                            <li><a ui-sref="customer.create">Create</a></li>
+                            <li><a ui-sref="customer.view" ui-sref-opts="{reload: true}">View</a></li>
+                            <li><a ui-sref="customer.create" ui-sref-opts="{reload: true}">Create</a></li>
                         </ul>
                     </li>
                 </ul>

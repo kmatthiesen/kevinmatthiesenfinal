@@ -19,14 +19,14 @@ public interface VehicleService {
 	 *            The new vehicle to be added.
 	 */
 	public void add(Vehicle vehicle);
-	
+
 	/**
 	 * Gets a list of all vehicles from the database.
 	 * 
 	 * @return The list of all vehicles from the database.
 	 */
 	public List<Vehicle> getVehicles();
-	
+
 	/**
 	 * Gets a vehicle from the database based on its id.
 	 * 
@@ -35,5 +35,13 @@ public interface VehicleService {
 	 * @return The vehicle with the given id.
 	 */
 	public Vehicle getVehicleById(Integer id);
+
+	/**
+	 * Updates a vehicle in the database.
+	 * 
+	 * @param vehicle
+	 *            The vehicle to update.
+	 */
+	public void update(Vehicle vehicle);
 
 }

@@ -24,8 +24,8 @@ import javax.validation.constraints.NotNull;
 public class Vehicle {
 
 	private Integer vehicleId;
-	private Make make;
-	private Model model;
+	private String make;
+	private String model;
 	private String licensePlate;
 	private String licenseLocation;
 	private String color;
@@ -53,10 +53,8 @@ public class Vehicle {
 	/**
 	 * @return the make
 	 */
-	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "makeId")
 	@NotNull
-	public Make getMake() {
+	public String getMake() {
 	
 		return make;
 		
@@ -65,7 +63,7 @@ public class Vehicle {
 	/**
 	 * @param make the make to set
 	 */
-	public void setMake(Make make) {
+	public void setMake(String make) {
 	
 		this.make = make;
 		
@@ -74,10 +72,8 @@ public class Vehicle {
 	/**
 	 * @return the model
 	 */
-	@OneToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "modelId")
 	@NotNull
-	public Model getModel() {
+	public String getModel() {
 	
 		return model;
 		
@@ -86,7 +82,7 @@ public class Vehicle {
 	/**
 	 * @param model the model to set
 	 */
-	public void setModel(Model model) {
+	public void setModel(String model) {
 	
 		this.model = model;
 		

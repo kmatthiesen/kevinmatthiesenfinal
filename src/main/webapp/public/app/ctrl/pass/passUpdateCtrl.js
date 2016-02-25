@@ -9,10 +9,11 @@ angular.module('final-project').controller('passUpdateCtrl', ['$scope', '$state'
 
         passService.update($scope.pass).then(function(){
 
-            console.log("yay");
+            $scope.message = "Pass successfully created.";
 
         }, function(error){
 
+            $scope.error = "Error: Pass not updated.";
             console.log(error);
 
         });
@@ -30,6 +31,7 @@ angular.module('final-project').controller('passUpdateCtrl', ['$scope', '$state'
 
             }, function(error) {
 
+                $scope.error = "Error: Pass not deleted.";
                 console.log(error);
 
             });

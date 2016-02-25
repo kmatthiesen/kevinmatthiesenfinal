@@ -10,10 +10,15 @@ angular.module("final-project").controller("customerUpdateCtrl", ['$scope', '$st
     $scope.updateCustomer = function() {
 
         customerService.update($scope.customer).then(function(){
+
             $scope.message = "Customer Information Updated.";
+
         }, function(error) {
+
             console.log(error);
+
             $scope.error = "Error: Customer not updated.";
+            
         });
 
     };

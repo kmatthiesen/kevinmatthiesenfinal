@@ -2,7 +2,6 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao;
 
 import java.util.List;
 
-import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
 
 /**

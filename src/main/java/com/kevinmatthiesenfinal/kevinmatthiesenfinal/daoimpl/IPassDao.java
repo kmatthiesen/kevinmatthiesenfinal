@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Component;
 
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao.PassDao;
-import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
 
 @Transactional

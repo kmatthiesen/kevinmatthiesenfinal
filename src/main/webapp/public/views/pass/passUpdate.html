@@ -8,8 +8,8 @@
 
                 <div class="form-group col-md-6">
 
-                    <label for="make">Customer:
-                    <select id="make-dropdown" class="form-control" name="make" ng-model="pass.customer"
+                    <label for="customer">Customer:
+                    <select id="customer-dropdown" class="form-control" name="customer" ng-model="pass.customer"
                         ng-options="customer as customer.lastName + ', ' + customer.firstName for customer in customers track by customer.customerId">
                     </select></label>
 
@@ -30,8 +30,8 @@
 
                 <div class="form-group col-md-6">
 
-                    <label for="model">Vehicle:
-                    <select id="model-dropdown" class="form-control" name="model" ng-model="pass.vehicle"
+                    <label for="vehicle">Vehicle:
+                    <select id="vehicle-dropdown" class="form-control" name="vehicle" ng-model="pass.vehicle"
                         ng-options="vehicle as vehicle.make + ' ' + vehicle.model  for vehicle in vehicles track by vehicle.vehicleId">
                     </select></label>
                     <div>

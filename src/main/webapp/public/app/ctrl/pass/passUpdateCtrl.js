@@ -9,7 +9,7 @@ angular.module('final-project').controller('passUpdateCtrl', ['$scope', '$state'
 
         passService.update($scope.pass).then(function(){
 
-            $scope.message = "Pass successfully created.";
+            $scope.message = "Pass successfully updated.";
 
         }, function(error){
 

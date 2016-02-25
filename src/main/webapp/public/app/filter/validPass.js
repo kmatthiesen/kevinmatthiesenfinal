@@ -7,7 +7,7 @@ angular.module('final-project').filter('validPass', function(){
 
         for (var i = 0; i < passDate.length; i++) {
 
-            if (passDate[i].expirationDate > currentDate) {
+            if (passDate[i].expirationDate >= currentDate) {
 
                 validPasses.push(passDate[i]);
 

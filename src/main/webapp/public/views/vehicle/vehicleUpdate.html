@@ -38,14 +38,17 @@
                 <label for="color">Color:
                 <input type="text" id="color" class="form-control" name="color" ng-model="vehicle.color" placeholder="Color" required /></label>
             </div>
-            <button type="submit" class="btn btn-default">Update</button>
-            <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
-            <div class="alert-success" ng-show="message.length">
-                {{message}}
+            <div class="btn-area">
+                <button type="submit" class="btn btn-default">Update</button>
+                <button type="button" class="btn btn-default" ui-sref="vehicle.view" ui-sref-opts="{reload: true}">Cancel</button>
+                <div class="alert-success" ng-show="message.length">
+                    {{message}}
+                </div>
+                <div class="alert-danger" ng-show="error.length" ng-repeat="error in errors" >
+                    {{error}}
+                </div>
             </div>
-            <div class="alert-danger" ng-show="error.length" ng-repeat="error in errors" >
-                {{error}}
-            </div>
+
         </form>
     </div>
 </div>

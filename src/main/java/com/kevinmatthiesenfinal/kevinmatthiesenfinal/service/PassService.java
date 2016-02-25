@@ -44,5 +44,13 @@ public interface PassService {
 	 * @return The pass with the corresponding id.
 	 */
 	public Pass getPassById(Integer id);
-	
+
+	/**
+	 * Delete a pass from the database.
+	 * 
+	 * @param pass
+	 *            The pass to delete.
+	 */
+	public void deletePass(Pass pass);
+
 }

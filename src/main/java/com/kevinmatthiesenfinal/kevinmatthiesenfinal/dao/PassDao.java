@@ -45,4 +45,12 @@ public interface PassDao {
 	 */
 	public Pass getPassById(Integer id);
 
+	/**
+	 * Deletes a pass from the database.
+	 * 
+	 * @param pass
+	 *            The pass to delete.
+	 */
+	public void deletePass(Pass pass);
+
 }

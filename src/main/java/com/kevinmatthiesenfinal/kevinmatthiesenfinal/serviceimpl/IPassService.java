@@ -52,4 +52,10 @@ public class IPassService implements PassService {
 
 	}
 
+	public void deletePass(Pass pass) {
+
+		dao.deletePass(pass);
+		
+	}
+
 }

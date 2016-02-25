@@ -23,6 +23,7 @@ public class Pass {
 	private Customer customer;
 	private Vehicle vehicle;
 	private Date expirationDate;
+	private Double price;
 	
 	/**
 	 * @return the passId
@@ -103,6 +104,23 @@ public class Pass {
 	
 		this.expirationDate = date;
 		
+	}
+
+	/**
+	 * @return the price
+	 */
+	@NotNull
+	public Double getPrice() {
+	
+		return price;
+	}
+
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(Double price) {
+	
+		this.price = price;
 	}
 	
 	

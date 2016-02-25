@@ -14,11 +14,32 @@ angular.module("final-project").service("passService", ["$http", function($http)
 
     }
 
+    function getPass(id) {
+
+        return $http.get(passEndPoint + "/" + id);
+
+    }
+
+    function update(pass) {
+
+        return $http.put(passEndPoint, pass);
+
+    }
+
+    function deletePass(id) {
+
+        return $http.delete(passEndPoint + "/" + id);
+
+    }
+
     // List of available functions.
     return {
 
         create: create,
-        getAllPasses:getAllPasses
+        getAllPasses:getAllPasses,
+        getPass: getPass,
+        update: update,
+        deletePass: deletePass
 
     };
 

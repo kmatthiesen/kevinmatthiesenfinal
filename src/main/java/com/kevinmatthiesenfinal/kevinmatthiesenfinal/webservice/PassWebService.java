@@ -85,5 +85,18 @@ public class PassWebService {
 		return service.getPassById(id);
 
 	}
+	
+	/**
+	 * Delete a pass from the database.
+	 * 
+	 * @param pass
+	 *            The pass to delete.
+	 */
+	@RequestMapping(value = "/pass/{id}", method = RequestMethod.DELETE)
+	public void deletePass(@PathVariable Integer id) {
+		
+		service.deletePass(service.getPassById(id));
+
+	}
 
 }

@@ -1,3 +1,9 @@
+body {
+
+    background-image: url("/images/Catalina_Pinwheel_2016_Hogan.jpg");
+
+}
+
 ul.nav {
 
     margin-top: 7px;
@@ -39,7 +45,7 @@ ul.nav {
 
 #view-port {
 
-    margin-top: 55px;
+    margin-top: 65px;
 
 }
 

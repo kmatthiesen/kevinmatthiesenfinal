@@ -1,5 +1,7 @@
 angular.module('final-project').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
+    $urlRouterProvider.otherwise("pass/view");
+
     $stateProvider
 
     .state("pass", {

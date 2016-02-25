@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="pass in passes | validPass | orderObjectBy: 'expirationDate': false" ui-sref="pass.update ({id : pass.passId})">
+                    <tr ng-repeat="pass in passes | validPass | orderObjectBy: 'expirationDate': false" ui-sref="pass.update ({id : pass.passId})" value="{{pass.passId}}">
                         <td>{{pass.customer.lastName}}, {{pass.customer.firstName}}</td>
                         <td>{{pass.vehicle.make}} {{pass.vehicle.model}}</td>
                         <td>{{pass.expirationDate | date: 'MM/dd/yyyy'}}</td>

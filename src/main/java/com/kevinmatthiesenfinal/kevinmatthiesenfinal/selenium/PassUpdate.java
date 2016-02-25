@@ -13,12 +13,33 @@ public class PassUpdate extends PageObject{
 	private static final By successMessage = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[5]/div[1]");
 	private static final By deleteBtn = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[5]/button[3]");
 	private Alert alert;
+	private String passId;
 	
-	public PassUpdate(WebDriver driver) {
+	public PassUpdate(WebDriver driver, String id) {
 		
 		super(driver);
+		setPassId(id);
+		
 	}
 	
+	/**
+	 * @return the passId
+	 */
+	public String getPassId() {
+	
+		return passId;
+		
+	}
+
+	/**
+	 * @param passId the passId to set
+	 */
+	public void setPassId(String passId) {
+	
+		this.passId = passId;
+		
+	}
+
 	public String updatePass() {
 		
 		waitForElementToExist(vehicleSelect);
@@ -37,6 +58,15 @@ public class PassUpdate extends PageObject{
 		alert = _driver.switchTo().alert();
 		alert.accept();
 		return passView;
+		
+	}
+	
+	@Override
+	public String getUrl() {
+		
+		String urlToWait = "http://localhost:8080/#/pass/update/" + passId;
+		waitForUrl(urlToWait, 2000);
+		return _driver.getCurrentUrl();
 		
 	}
 	

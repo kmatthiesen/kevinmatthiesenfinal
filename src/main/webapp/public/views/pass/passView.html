@@ -16,7 +16,7 @@
                     <tr ng-repeat="pass in passes | validPass | orderObjectBy: 'expirationDate': false" ui-sref="pass.update ({id : pass.passId})">
                         <td>{{pass.customer.lastName}}, {{pass.customer.firstName}}</td>
                         <td>{{pass.vehicle.make}} {{pass.vehicle.model}}</td>
-                        <td>{{pass.expirationDate | date: 'MM-dd-yyyy'}}</td>
+                        <td>{{pass.expirationDate | date: 'MM/dd/yyyy'}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -38,7 +38,7 @@
                     <tr ng-repeat="pass in passes | invalidPass | orderObjectBy: 'expirationDate': true" ui-sref="pass.update ({id : pass.passId})">
                         <td>{{pass.customer.lastName}}, {{pass.customer.firstName}}</td>
                         <td>{{pass.vehicle.make}} {{pass.vehicle.model}}</td>
-                        <td>{{pass.expirationDate | date: 'MM-dd-yyyy'}}</td>
+                        <td>{{pass.expirationDate | date: 'MM/dd/yyyy'}}</td>
                     </tr>
                 </tbody>
             </table>

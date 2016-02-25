@@ -2,6 +2,7 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.service;
 
 import java.util.List;
 
+import com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao.CustomerDao;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 
 /**
@@ -11,6 +12,14 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
  *
  */
 public interface CustomerService {
+
+	/**
+	 * Setter for a customer dao.
+	 * 
+	 * @param dao
+	 *            The dao to set.
+	 */
+	public void setDao(CustomerDao dao);
 
 	/**
 	 * Adds a customer to the database.
@@ -43,5 +52,5 @@ public interface CustomerService {
 	 * @return The customer with the corresponding id.
 	 */
 	public Customer getCustomerById(Integer id);
-	
+
 }

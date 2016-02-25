@@ -2,6 +2,8 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
 
 /**
@@ -11,6 +13,14 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Customer;
  *
  */
 public interface CustomerDao {
+
+	/**
+	 * Setter for an EntityManager
+	 * 
+	 * @param em
+	 *            The EntityManager to set
+	 */
+	public void setEm(EntityManager em);
 
 	/**
 	 * Adds a customer to the database.

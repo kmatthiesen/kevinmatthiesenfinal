@@ -40,7 +40,7 @@ public class VehicleWebService {
 	 *            The vehicle to add to the database.
 	 */
 	@RequestMapping(value = "/vehicle", method = RequestMethod.POST)
-	public void addVehicle(@RequestBody Vehicle vehicle) {
+	public void add(@RequestBody Vehicle vehicle) {
 
 		service.add(vehicle);
 

@@ -2,6 +2,8 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
 
 /**
@@ -12,6 +14,14 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
  */
 public interface PassDao {
 
+	/**
+	 * Setter for an EntityManager
+	 * 
+	 * @param em
+	 *            The EntityManager to set
+	 */
+	public void setEm(EntityManager em);
+	
 	/**
 	 * Adds a pass to the database.
 	 * 

@@ -2,6 +2,7 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.service;
 
 import java.util.List;
 
+import com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao.PassDao;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
 
 /**
@@ -11,6 +12,14 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Pass;
  *
  */
 public interface PassService {
+	
+	/**
+	 * Setter for a pass dao.
+	 * 
+	 * @param dao
+	 *            The dao to set.
+	 */
+	public void setDao(PassDao dao);
 
 	/**
 	 * Adds a pass to the database.

@@ -41,7 +41,7 @@ public class CustomerWebService {
 	 *            The new customer to be created on the database.
 	 */
 	@RequestMapping(value = "/customer", method = RequestMethod.POST)
-	public void createCustomer(@RequestBody Customer customer) {
+	public void add(@RequestBody Customer customer) {
 
 		service.add(customer);
 

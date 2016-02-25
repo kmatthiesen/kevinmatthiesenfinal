@@ -2,6 +2,7 @@ package com.kevinmatthiesenfinal.kevinmatthiesenfinal.service;
 
 import java.util.List;
 
+import com.kevinmatthiesenfinal.kevinmatthiesenfinal.dao.VehicleDao;
 import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Vehicle;
 
 /**
@@ -11,6 +12,14 @@ import com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity.Vehicle;
  *
  */
 public interface VehicleService {
+	
+	/**
+	 * Setter for a vehicle dao.
+	 * 
+	 * @param dao
+	 *            The dao to set.
+	 */
+	public void setDao(VehicleDao dao);
 
 	/**
 	 * Adds a new vehicle to the database.

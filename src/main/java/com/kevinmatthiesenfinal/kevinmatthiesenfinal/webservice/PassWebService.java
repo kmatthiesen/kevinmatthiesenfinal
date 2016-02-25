@@ -41,7 +41,7 @@ public class PassWebService {
 	 *            The new pass to be created on the database.
 	 */
 	@RequestMapping(value = "/pass", method = RequestMethod.POST)
-	public void createpass(@RequestBody Pass pass) {
+	public void add(@RequestBody Pass pass) {
 		
 		service.add(pass);
 

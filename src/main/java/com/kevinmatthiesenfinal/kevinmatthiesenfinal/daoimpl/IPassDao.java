@@ -59,6 +59,7 @@ public class IPassDao implements PassDao {
 	public void deletePass(Pass pass) {
 
 		em.remove(pass);
+		em.flush();
 		
 	}
 

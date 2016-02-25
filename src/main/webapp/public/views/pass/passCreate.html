@@ -1,40 +1,69 @@
-<div class="panel">
-    <div class="panel-body">
-        <form class="form-group col-md-6 col-md-offset-3" ng-submit="createVehicle()">
 
-            <div class="form-group">
+<form class="form-group col-md-6 col-md-offset-3" ng-submit="createPass()">
+    <div class="row">
+        <div class="form-group col-md-6">
 
-                <label for="make">Customer:
-                <select id="make-dropdown" class="form-control" name="make" ng-model="pass.customer"
-                    ng-options="customer as customer.lastName + ', ' + customer.firstName for customer in customers">
-                    <option value="" ng-if="false"></option>
-                </select>
+            <label for="make">Customer:
+            <select id="make-dropdown" class="form-control" name="make" ng-model="pass.customer"
+                ng-options="customer as customer.lastName + ', ' + customer.firstName for customer in customers">
+                <option value="" ng-if="false"></option>
+            </select></label>
 
+            <div>
+                <dl class="dl">
+                  <dt>Last Name:</dt>
+                  <dd>{{pass.customer.lastName}}</dd>
+                  <dt>First Name:</dt>
+                  <dd>{{pass.customer.firstName}} </dd>
+                  <dt>Phone Number:</dt>
+                  <dd>{{pass.customer.phoneNumber}}</dd>
+                  <dt>Email:</dt>
+                  <dd>{{pass.customer.email}}</dd>
+                </dl>
             </div>
-            <div class="form-group">
 
-                <label for="model">Vehicle:
-                <select id="model-dropdown" class="form-control" name="model" ng-model="pass.vehicle"
-                    ng-options="vehicle as vehicle.model  for vehicle in vehicles | unique: 'model'">
-                    <option value="" ng-if="false"></option>
-                </select>
+        </div>
 
+        <div class="form-group col-md-6">
+
+            <label for="model">Vehicle:
+            <select id="model-dropdown" class="form-control" name="model" ng-model="pass.vehicle"
+                ng-options="vehicle as vehicle.make + ' ' + vehicle.model  for vehicle in vehicles">
+                <option value="" ng-if="false"></option>
+            </select></label>
+            <div>
+                <dl class="dl">
+                  <dt>Make:</dt>
+                  <dd>{{pass.vehicle.make}}</dd>
+                  <dt>Model:</dt>
+                  <dd>{{pass.vehicle.model}}</dd>
+                  <dt>Color:</dt>
+                  <dd>{{pass.vehicle.color}}</dd>
+                  <dt>License Plate:</dt>
+                  <dd>{{pass.vehicle.licensePlate}} {{pass.vehicle.licenseLocation}}</dd>
+                </dl>
             </div>
-            <div class="form-group">
-                <label>License Plate</label>
-                <label for="licensePlate">Number:
-                <input type="text" id="licensePlate" class="form-control" name="licensePlate" ng-model="newVehicle.licensePlate"
-                    placeholder="License Plate Number" required /></label>
 
-                <label for="licenseLocation">Location:
-                <input type="text" id="licenseLocation" class="form-control" name="licenseLocation" ng-model="newVehicle.licenseLocation"
-                    placeholder="License Plate Location" required /></label>
+        </div>
 
+        <div class="col-md-12">
+
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="cost">Cost: </label>
+            <div>
+                {{pass.price | currency}}
             </div>
-            <div class="form-group">
-                <label for="color">Color:
-                <input type="text" id="color" class="form-control" name="color" ng-model="newVehicle.color" placeholder="Color" required /></label>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="date">Expration Date: </label>
+            <div>
+                {{pass.expirationDate | date: 'MM-dd-yyyy'}}
             </div>
+        </div>
+
+        <div class="form-group col-md-12 btn-area">
             <button type="submit" class="btn btn-default">Create</button>
             <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
             <div class="alert-success" ng-show="message.length">
@@ -43,6 +72,6 @@
             <div class="alert-danger" ng-show="error.length" ng-repeat="error in errors" >
                 {{error}}
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>

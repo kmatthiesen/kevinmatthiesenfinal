@@ -1,7 +1,6 @@
-.nav {
+ul.nav {
 
-    margin-top: 10px;
-    color: white !important;
+    margin-top: 7px;
 
 }
 
@@ -11,9 +10,16 @@
 
 }
 
-.nav > li > a:hover{
+.nav ul a {
 
-    background-color: rgb(136, 136, 136) !important;
+    color: black !important;
+
+}
+
+.nav > li > a:hover,
+.open > a {
+
+    background-color: transparent !important;
 
 }
 
@@ -28,12 +34,17 @@
 
     display: block;
     margin-top: 0;
-    color: black !important;
 
 }
 
 #view-port {
 
     margin-top: 53px;
+
+}
+
+.btn-area {
+
+    text-align: center;
 
 }

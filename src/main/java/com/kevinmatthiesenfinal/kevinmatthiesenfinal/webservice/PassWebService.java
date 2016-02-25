@@ -42,7 +42,7 @@ public class PassWebService {
 	 */
 	@RequestMapping(value = "/pass", method = RequestMethod.POST)
 	public void createpass(@RequestBody Pass pass) {
-
+		
 		service.add(pass);
 
 	}

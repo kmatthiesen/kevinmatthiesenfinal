@@ -1,6 +1,6 @@
 package com.kevinmatthiesenfinal.kevinmatthiesenfinal.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,8 +30,8 @@ public class Pass {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getPassId() {
-	
-		return passId;
+		
+		return passId;		
 		
 	}
 	
@@ -97,11 +97,11 @@ public class Pass {
 	}
 	
 	/**
-	 * @param expirationDate the expirationDate to set
+	 * @param date the expirationDate to set
 	 */
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(java.util.Date date) {
 	
-		this.expirationDate = expirationDate;
+		this.expirationDate = date;
 		
 	}
 	

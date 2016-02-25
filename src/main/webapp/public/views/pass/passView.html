@@ -3,20 +3,16 @@
         <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>License Plate Number</th>
-                    <th>License Plate Location</th>
+                    <th>Customer</th>
+                    <th>Vehicle</th>
+                    <th>Expiration Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="vehicle in vehicles" ui-sref="vehicle.update ({id : vehicle.vehicleId})">
-                    <td>{{vehicle.make}}</td>
-                    <td>{{vehicle.model}}</td>
-                    <td>{{vehicle.color}}</td>
-                    <td>{{vehicle.licensePlate}}</td>
-                    <td>{{vehicle.licenseLocation}}</td>
+                <tr ng-repeat="pass in passes | validPass" ui-sref="pass.update ({id : pass.passId})">
+                    <td>{{pass.customer.lastName}}, {{pass.customer.firstName}}</td>
+                    <td>{{pass.vehicle.make}} {{pass.vehicle.model}}</td>
+                    <td>{{pass.expirationDate | date: 'MM-dd-yyyy'}}</td>
                 </tr>
             </tbody>
         </table>

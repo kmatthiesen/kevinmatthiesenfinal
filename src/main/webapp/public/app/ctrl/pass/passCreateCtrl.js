@@ -1,8 +1,9 @@
-angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state', 'passService', 'getAllCustomers', 'getAllVehicles',
-    function($scope, $state, passService, getAllCustomers, getAllVehicles){
+angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state', 'passService', 'getAllCustomers', 'getAllVehicles', 'getAllPasses',
+    function($scope, $state, passService, getAllCustomers, getAllVehicles, getAllPasses){
 
     $scope.vehicles = getAllVehicles;
     $scope.customers = getAllCustomers;
+    $scope.passes = getAllPasses;
     initilization();
     templatePass();
 
@@ -11,30 +12,31 @@ angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state'
         passService.create($scope.pass).then(function(){
 
             $scope.message = "Pass successfully created.";
+            $scope.error = "";
             templatePass();
 
         }, function(error){
 
             $scope.error = "Error: Pass not created.";
+            $scope.message="";
             console.log(error);
 
-        });
-
+        });        
     };
 
     $scope.lengthChange= function(availablePass) {
 
         $scope.pass.price = availablePass.price;
         $scope.pass.expirationDate = availablePass.expirationDate;
+        $scope.newPass = availablePass;
 
     };
 
     function templatePass() {
 
         $scope.pass = {};
-        $scope.newPass = $scope.availablePasses[1];
-        $scope.pass.price = $scope.availablePasses[1].price;
-        $scope.pass.expirationDate = $scope.availablePasses[1].expirationDate;
+        $scope.pass.price = $scope.newPass.price;
+        $scope.pass.expirationDate = $scope.newPass.expirationDate;
 
     }
 
@@ -51,6 +53,8 @@ angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state'
             {price: 24.99, expirationDate: thirtyDayDate, length: 30},
             {price: 225.46, expirationDate: yearDate, length: 365}
         ];
+
+        $scope.newPass = $scope.availablePasses[1];
 
     }
 

@@ -37,14 +37,14 @@
                     </select></label>
                     <div>
                         <dl class="dl">
-                          <dt>Make:</dt>
-                          <dd>{{pass.vehicle.make}}</dd>
-                          <dt>Model:</dt>
-                          <dd>{{pass.vehicle.model}}</dd>
-                          <dt>Color:</dt>
-                          <dd>{{pass.vehicle.color}}</dd>
-                          <dt>License Plate:</dt>
-                          <dd>{{pass.vehicle.licensePlate}} {{pass.vehicle.licenseLocation}}</dd>
+                            <dt>Make:</dt>
+                            <dd>{{pass.vehicle.make}}</dd>
+                            <dt>Model:</dt>
+                            <dd>{{pass.vehicle.model}}</dd>
+                            <dt>Color:</dt>
+                            <dd>{{pass.vehicle.color}}</dd>
+                            <dt>License Plate:</dt>
+                            <dd>{{pass.vehicle.licensePlate}} {{pass.vehicle.licenseLocation}}</dd>
                         </dl>
                     </div>
 
@@ -58,7 +58,7 @@
                     <div class="col-md-4" id="radio-div" ng-repeat="availablePass in availablePasses">
 
                         <label>
-                        <input type="radio" name="passLength" ng-model="newPass" class="radio radio-inline" ng-value="availablePass" ng-click="lengthChange(availablePass)" />
+                        <input type="radio" name="passLength" ng-model="newPass" ng-value="availablePass" class="radio radio-inline" ng-click="lengthChange(availablePass)" />
                             {{availablePass.length}} Days</label>
 
                     </div>

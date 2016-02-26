@@ -1,8 +1,9 @@
-angular.module('final-project').controller('passUpdateCtrl', ['$scope', '$state', 'passService', 'getAllCustomers', 'getAllVehicles', 'getPass',
-    function($scope, $state, passService, getAllCustomers, getAllVehicles, getPass){
+angular.module('final-project').controller('passUpdateCtrl', ['$scope', '$state', 'passService', 'getAllCustomers', 'getAllVehicles', 'getPass', 'getAllPasses',
+    function($scope, $state, passService, getAllCustomers, getAllVehicles, getPass, getAllPasses){
 
     $scope.vehicles = getAllVehicles;
     $scope.customers = getAllCustomers;
+    $scope.passes = getAllPasses;
     $scope.pass = getPass;
 
     $scope.updatePass = function() {
@@ -10,10 +11,12 @@ angular.module('final-project').controller('passUpdateCtrl', ['$scope', '$state'
         passService.update($scope.pass).then(function(){
 
             $scope.message = "Pass successfully created.";
+            $scope.error = "";
 
         }, function(error){
 
             $scope.error = "Error: Pass not updated.";
+            $scope.message="";
             console.log(error);
 
         });

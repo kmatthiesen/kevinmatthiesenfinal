@@ -35,6 +35,19 @@ angular.module('final-project').config(['$stateProvider', '$urlRouterProvider', 
 
                 });
 
+            }],
+            // Gets all pass from the database.
+            getAllPasses: ['passService', function(passService){
+
+                return passService.getAllPasses().then(function(response){
+
+                    return response.data;
+
+                }, function(error){
+
+                    console.log(error);
+
+                });
             }]
         }
 
@@ -52,22 +65,7 @@ angular.module('final-project').config(['$stateProvider', '$urlRouterProvider', 
 
         url:"/view",
         templateUrl:"/views/pass/passView.html",
-        controller: 'passViewCtrl',
-        resolve: {
-            // Gets all pass from the database.
-            getAllPasses: ['passService', function(passService){
-
-                return passService.getAllPasses().then(function(response){
-
-                    return response.data;
-
-                }, function(error){
-
-                    console.log(error);
-
-                });
-            }]
-        }
+        controller: 'passViewCtrl'
     })
 
     .state("pass.update", {

@@ -3,6 +3,7 @@ angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state'
 
     $scope.vehicles = getAllVehicles;
     $scope.customers = getAllCustomers;
+    initilization();
     templatePass();
 
     $scope.createPass = function() {
@@ -21,12 +22,35 @@ angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state'
 
     };
 
+    $scope.lengthChange= function(availablePass) {
+
+        $scope.pass.price = availablePass.price;
+        $scope.pass.expirationDate = availablePass.expirationDate;
+
+    };
+
     function templatePass() {
 
         $scope.pass = {};
-        $scope.pass.price = 24.99;
-        $scope.pass.expirationDate = new Date();
-        $scope.pass.expirationDate.setDate($scope.pass.expirationDate.getDate() + 30);
+        $scope.newPass = $scope.availablePasses[1];
+        $scope.pass.price = $scope.availablePasses[1].price;
+        $scope.pass.expirationDate = $scope.availablePasses[1].expirationDate;
+
+    }
+
+    function initilization() {
+
+        var sevenDayDate = new Date();
+        sevenDayDate.setDate(sevenDayDate.getDate() + 7);
+        var thirtyDayDate = new Date();
+        thirtyDayDate.setDate(thirtyDayDate.getDate() + 30);
+        var yearDate = new Date();
+        yearDate.setDate(yearDate.getDate() + 365);
+
+        $scope.availablePasses = [{price: 7.50, expirationDate: sevenDayDate, length: 7},
+            {price: 24.99, expirationDate: thirtyDayDate, length: 30},
+            {price: 225.46, expirationDate: yearDate, length: 365}
+        ];
 
     }
 

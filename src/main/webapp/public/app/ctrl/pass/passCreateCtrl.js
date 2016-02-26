@@ -1,9 +1,8 @@
-angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state', 'passService', 'getAllCustomers', 'getAllVehicles', 'getAllPasses',
-    function($scope, $state, passService, getAllCustomers, getAllVehicles, getAllPasses){
+angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state', 'passService', 'getAllCustomers', 'getAllVehicles',
+    function($scope, $state, passService, getAllCustomers, getAllVehicles){
 
     $scope.vehicles = getAllVehicles;
     $scope.customers = getAllCustomers;
-    $scope.passes = getAllPasses;
     initilization();
     templatePass();
 
@@ -21,7 +20,7 @@ angular.module('final-project').controller('passCreateCtrl', ['$scope', '$state'
             $scope.message="";
             console.log(error);
 
-        });        
+        });
     };
 
     $scope.lengthChange= function(availablePass) {

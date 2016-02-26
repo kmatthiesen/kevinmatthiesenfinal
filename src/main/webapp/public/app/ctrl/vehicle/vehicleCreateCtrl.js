@@ -26,7 +26,7 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
         vehicleService.create($scope.newVehicle).then(function() {
 
             $scope.message = "Vehicle added.";
-            $scope.newVehicle = {};
+            addVehicle();
             $scope.error = "";
 
         }, function(error) {
@@ -37,5 +37,16 @@ angular.module("final-project").controller("vehicleCreateCtrl", ['$scope', '$sta
 
 
     };
+
+    function addVehicle() {
+
+        $scope.vehicles.pop();
+        $scope.vehicles.push($scope.newVehicle);
+        $scope.vehicles.push({make: "Other", model: "Other"});
+        $scope.newVehicle = {};
+        $scope.newMake = "";
+        $scope.newModel = "";
+
+    }
 
 }]);

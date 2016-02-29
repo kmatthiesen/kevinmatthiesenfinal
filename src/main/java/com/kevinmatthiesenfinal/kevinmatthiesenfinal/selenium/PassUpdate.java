@@ -9,9 +9,9 @@ public class PassUpdate extends PageObject{
 
 	private static final By vehicleSelect = By.xpath("//*[@id='vehicle-dropdown']");
 	private static final By vehicleName = By.xpath("//*[@id='vehicle-dropdown']/option[3]");
-	private static final By updateBtn = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[5]/button[1]");
-	private static final By successMessage = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[5]/div[1]");
-	private static final By deleteBtn = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[5]/button[3]");
+	private static final By updateBtn = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[3]/button[1]");
+	private static final By successMessage = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[3]/div[1]");
+	private static final By deleteBtn = By.xpath("//*[@id='view-port']/ui-view/ui-view/div/div/form/fieldset/div[3]/button[3]");
 	private Alert alert;
 	private String passId;
 	
@@ -58,15 +58,6 @@ public class PassUpdate extends PageObject{
 		alert = _driver.switchTo().alert();
 		alert.accept();
 		return passView;
-		
-	}
-	
-	@Override
-	public String getUrl() {
-		
-		String urlToWait = "http://localhost:8080/#/pass/update/" + passId;
-		waitForUrl(urlToWait, 2000);
-		return _driver.getCurrentUrl();
 		
 	}
 	

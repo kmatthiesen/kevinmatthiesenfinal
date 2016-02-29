@@ -9,28 +9,29 @@
 
                     <label for="make" class="col-md-6">Vehicle Make:
                     <select id="make-dropdown" class="form-control" name="make" ng-model="vehicle.make"
-                        ng-options="vehicle.make as vehicle.make for vehicle in vehicles | unique: 'make'">
+                        ng-options="vehicle.make as vehicle.make for vehicle in vehicles | unique: 'make'" required>
                     </select></label>
 
                     <label for="model" class="col-md-6">Vehicle Model:
                     <select id="model-dropdown" class="form-control" name="model" ng-model="vehicle.model"
-                        ng-options="vehicle.model as vehicle.model for vehicle in vehicles | unique: 'model'">
+                        ng-options="vehicle.model as vehicle.model for vehicle in vehicles | unique: 'model'" required>
                     </select></label>
 
                     <div class="col-md-6">
-                        <input type="text" id="other-make" class="form-control" name="make" ng-model="newMake"
-                            placeholder="Make" ng-show="vehicle.make == 'Other'" ng-required="vehicle.make == 'Other'" />
+                        <input type="text" id="other-make" class="form-control" name="make" ng-model="newMake" title="Ford"
+                            placeholder="Make" ng-show="vehicle.make == 'Other'" ng-required="vehicle.make == 'Other'" pattern="^[a-zA-Z0-9\-\s]+$" />
                     </div>
                     <div class="col-md-6">
-                        <input type="text" id="other-model" class="form-control" name="model" ng-model="newModel"
-                            placeholder="Model" ng-show="vehicle.model == 'Other'" ng-required="vehicle.model == 'Other'" />
+                        <input type="text" id="other-model" class="form-control" name="model" ng-model="newModel" title="F250"
+                            placeholder="Model" ng-show="vehicle.model == 'Other'" ng-required="vehicle.model == 'Other'" pattern="^[a-zA-Z0-9\-\s]+$" />
                     </div>
 
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="color" class="col-md-12">Color:
-                    <input type="text" id="color" class="form-control" name="color" ng-model="vehicle.color" placeholder="Color" required /></label>
+                    <input type="text" id="color" class="form-control" name="color" ng-model="vehicle.color"
+                        placeholder="Color" pattern="^[a-zA-Z]+$" title="Blue" required /></label>
                 </div>
 
                 <fieldset class="col-md-12">
@@ -44,7 +45,7 @@
 
                     <label for="licenseLocation" class="col-md-6">Location:
                     <input type="text" id="licenseLocation" class="form-control" name="licenseLocation" ng-model="vehicle.licenseLocation"
-                        placeholder="Location" required /></label>
+                        placeholder="Location" pattern="^[a-zA-Z\-\s]+$" title="Washington" required /></label>
 
                 </fieldset>
 
